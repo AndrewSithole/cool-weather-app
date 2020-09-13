@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/styles/index.css">
+    <title>Weather</title>
+    <style></style>
+</head>
+<body>
+<div class="site-content">
+    <div class="site-header" style="height: 60px; padding: 10px">
+        <div class="container">
+            <a href="index.html" class="branding"><img src="/images/icon.svg" height="40" class="logo"></a>
+        </div>
+    </div>
+
+    <div class="hero" data-bg-image="/images/banner.jpg" >
+        <div class="container">
+            <div class="form find-location">
+                <input type="text" id="txt_city" placeholder="Find your location...">
+                <input type="submit" id="btn_get_weather" value="Find">
+                <div style="clear: both;"></div>
+            </div>
+
+        </div>
+        <div class="forecast-table">
+            <div class="container">
+                <div class="forecast-container">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="bundle.js"></script>
+
+</body>
+</html>
