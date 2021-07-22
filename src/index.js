@@ -13,16 +13,24 @@ function $(selector){
 }
 $('.hero')[0].style.height = h+"px";
 if(w<=600)$('.hero')[0].style.height = (h-120)+"px";
-
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 function getDay(date){
     date = new Date(date*1000);
     return date.toString().split(' ')[0];
+}
+function getDayMonth(dt){
+    let d = new Date(dt*1000);
+    let date = d.getDate();
+    let month = months[d.getMonth()]; // Since getMonth() returns month from 0-11 not 1-12.
+    let year = d.getFullYear();
+    let dateStr = date + " " + month;
+    return dateStr;
 }
 
 
 function displayData(result, res) {
     let template = ``;
-
+    console.log(res)
     res.daily.forEach((day, i)=>{
         let dy = getDay(day.dt);
         if(i===7) return false;
@@ -31,7 +39,7 @@ function displayData(result, res) {
                     <div class="today forecast">
                         <div class="forecast-header">
                             <div class="day">${dy}</div>
-                            <div class="date">6 Oct</div>
+                            <div class="date">${getDayMonth(result.dt)}</div>
                         </div> <!-- .forecast-header -->
                         <div class="forecast-content">
                             <div class="location">${result.name}  -- ${res.timezone}</div>
@@ -78,18 +86,18 @@ function getWeather(place){
 }
 
 let lastFetched = localStorage.getItem("lastFetchedData");
-if(lastFetched){
-    lastFetched = JSON.parse(lastFetched);
-    if(lastFetched.length===2){
-        console.dir(lastFetched);
-        displayData(lastFetched[0], lastFetched[1]);
-        getWeather(lastFetched[0].name);
-    }
-}
+// if(lastFetched){
+//     lastFetched = JSON.parse(lastFetched);
+//     if(lastFetched.length===2){
+//         console.dir(lastFetched);
+//         displayData(lastFetched[0], lastFetched[1]);
+//         getWeather(lastFetched[0].name);
+//     }
+// }
 
-const form = document.getElementById('searchLocationForm');
-form.addEventListener('submit', function (e){
-    e.preventDefault();
+const btn = document.getElementById('btn_get_weather');
+btn.addEventListener('click', function (e){
+    console.log("clicked");
     getWeather($('#txt_city')[0].value)
 });
 

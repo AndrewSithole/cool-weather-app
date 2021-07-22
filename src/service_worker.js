@@ -3,7 +3,6 @@ self.addEventListener('install', function(e) {
         caches.open('smash_it_drew').then(function(cache) {
             return cache.addAll([
                 '/',
-                '/index.js',
                 '/styles/index.css',
                 '/images/lighthouse_background.svg',
                 '/images/01d.svg',
