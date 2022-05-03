@@ -10,6 +10,10 @@ export default {
         publicPath: '/public/',
         filename: 'bundle.js'
     },
+    devServer: {
+        contentBase: './dist',
+        hot: true,
+    },
     mode: 'development',
     plugins: [
         new webpack.LoaderOptionsPlugin({

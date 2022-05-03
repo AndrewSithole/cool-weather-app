@@ -40,7 +40,7 @@ svg:not(:root) {
     background-size: cover;
     overflow: scroll;
     min-height: 350px; }
-form input, form textarea, form select {
+.find-location input, .find-location textarea, .find-location select, .find-location button {
     outline: none;
     border: none;
     padding: 10px;
@@ -51,7 +51,7 @@ form input, form textarea, form select {
 .find-location input[type="text"] {
     width: 100%;
     padding: 20px 50px 20px 20px; }
-.find-location input[type="submit"] {
+.find-location button {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -100,13 +100,13 @@ form input, form textarea, form select {
     padding-top: 30px;
     padding-bottom: 30px; }
 .forecast-container .forecast.today .location {
-    font-size: 1.2857142857em;
+    font-size: 1.2857142857rem;
     font-weight:300; }
 .forecast-container .forecast.today .degree .num, .forecast-container .forecast.today .degree .forecast-icon {
     display: inline-block;
     vertical-align: middle; }
 .forecast-container .forecast.today .degree .num {
-    font-size: 4.4285714286rem;
+    font-size: 4.4285714286rrem;
     margin-right: 30px; font-weight:100;}
 .forecast-container .forecast.today span {
     margin-right: 20px; }
@@ -144,11 +144,11 @@ form input, form textarea, form select {
 .forecast-container .forecast .forecast-content .forecast-icon {
     margin-bottom: 20px; }
 .forecast-container .forecast .forecast-content .degree {
-    font-size: 1.5142857143em;
+    font-size: 1.5142857143rem;
     color: white;
     font-weight: 100; }
 .forecast-container .forecast .forecast-content small {
-    font-size: 1.1428571429em; }
+    font-size: 1.1428571429rem; }
 
 @media (max-width: 600px){
     .forecast-container .forecast .forecast-content .forecast-icon {
@@ -169,3 +169,66 @@ form input, form textarea, form select {
         color: #fff;
     }
 }
+
+.flex-container{
+    display: flex;
+}
+.flex-container.equal_width{
+    width: 100%;
+    align-items: stretch;
+}
+.title{font-size: 1.5rem}
+.center{text-align: center}
+.flex-column{ flex-direction: column;}
+.flex-row{ flex-direction: row;}
+.flex-justify-center{ justify-content: center;}
+.flex-justify-around{ justify-content: space-around;}
+
+.flex-container > .temperature_today{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 7rem;
+}
+.main_temperature{
+    font-size: 3.5rem;
+}
+.main_temperature .temperature_description{
+    font-size: 1rem;
+}
+.degrees{
+    font-size: 1rem;
+    font-weight: 100;
+    position: absolute;
+    top: 6rem;
+}
+.key_stats_wrapper{
+    padding: 5px 60px;
+    margin-top: 2rem;
+}
+.key_stats_image{
+    height:3rem;
+    background: rgba(255,255,255,0.2);
+    width: 3rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.today_stats_wrapper{
+    padding: 5px;
+    overflow-x: scroll;
+    width:400px;
+}
+
+.today_stats{
+    height:6.3rem;
+    background: rgba(0,0,0,0.2);
+    width: 4.2rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+.today_stats img{width: 40px; text-align: center}
