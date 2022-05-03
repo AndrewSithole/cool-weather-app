@@ -1,18 +1,38 @@
 import {getTodayWeather} from "./api/weather";
 import {getWeekWeather} from "./api/weather";
+import _ from "lodash";
+import "./public/styles/index.css";
+import printMe from './print.js';
 
-if('serviceWorker' in navigator) {
-    navigator.serviceWorker
-        .register('/service_worker.js')
-        .then(function() { console.log("Service Worker Registered"); });
+function component() {
+    const element = document.createElement('div');
+    const btn = document.createElement('button');
+
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = printMe;
+
+    element.appendChild(btn);
+    // Lodash, currently included via a script, is required for this line to work
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    element.classList.add('hero');
+    return element;
 }
-let w = window.innerWidth;
-let h = window.innerHeight;
+
+document.body.appendChild(component());
+
+
+// if('serviceWorker' in navigator) {
+//     navigator.serviceWorker
+//         .register('/service_worker.js')
+//         .then(function() { console.log("Service Worker Registered"); });
+// }
+// let w = window.innerWidth;
+// let h = window.innerHeight;
 function $(selector){
     return document.querySelectorAll(selector);
 }
-$('.hero')[0].style.height = h+"px";
-if(w<=600)$('.hero')[0].style.height = (h-120)+"px";
+// $('.hero')[0].style.height = h+"px";
+// if(w<=600)$('.hero')[0].style.height = (h-120)+"px";
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 function getDay(date){
     date = new Date(date*1000);
@@ -85,7 +105,7 @@ function getWeather(place){
         })
 }
 
-let lastFetched = localStorage.getItem("lastFetchedData");
+// let lastFetched = localStorage.getItem("lastFetchedData");
 // if(lastFetched){
 //     lastFetched = JSON.parse(lastFetched);
 //     if(lastFetched.length===2){
@@ -95,9 +115,9 @@ let lastFetched = localStorage.getItem("lastFetchedData");
 //     }
 // }
 
-const btn = document.getElementById('btn_get_weather');
-btn.addEventListener('click', function (e){
-    console.log("clicked");
-    getWeather($('#txt_city')[0].value)
-});
+// const btn = document.getElementById('btn_get_weather');
+// btn.addEventListener('click', function (e){
+//     console.log("clicked");
+//     getWeather($('#txt_city')[0].value)
+// });
 

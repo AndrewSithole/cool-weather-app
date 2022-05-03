@@ -34,7 +34,7 @@ svg:not(:root) {
 .site-header .branding .logo {margin-right: 10px; }
 
 .hero {
-    background-image: url('/images/lighthouse_background.svg');
+    background-image: url('/src/public/images/lighthouse_background.svg');
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
