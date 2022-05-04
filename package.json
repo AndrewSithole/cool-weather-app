@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "babel-node build_scripts/startMsg.js",
-    "start": "npm-run-all --parallel open:src",
+    "start": "webpack serve --open",
     "test": "echo \"Error: no test specified\" && exit 1",
     "localtunnel": "lt -h \"https://serverless.social\" -p 3000 --subdomain andy",
     "open:src": "babel-node build_scripts/srcServer.js",
@@ -63,6 +63,7 @@
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
   }
 }
